@@ -9,6 +9,7 @@ import (
 	"strconv"
 
 	"github.com/joho/godotenv"
+	"github.com/nhx-finance/kesy/internal/middleware"
 	store "github.com/nhx-finance/kesy/internal/stores"
 )
 
@@ -25,7 +26,7 @@ import (
 	Logger *log.Logger
 	Port int
 	DB *sql.DB
-	// TODO: Add remaining stores, handlers, middleware
+	Middleware *middleware.UserAuthMiddleware
  }
 
  func loadEnvironmentVariables() {
