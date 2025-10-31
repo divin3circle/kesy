@@ -57,10 +57,21 @@ import (
 		return nil, err
 	}
 
+	/** 
+	* STORES
+	* **/
+	us := store.NewPostgresUserStore(db)
+
+	/**
+	* MIDDLEWARE
+	* **/
+	um := middleware.NewUserAuthMiddleware(us)
+
 	return &Application{
 		Logger: logger,
 		Port:   port,
 		DB:     db,
+		Middleware: um,
 	}, nil
  }
 
